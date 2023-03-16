@@ -10,7 +10,7 @@ init_time = datetime.now()
 exitos = 0
 fallos = 0
 print(f"¡Veremos cuanto tardas en responder estas {times} operaciones!")
-for i in range(0, times):
+for i in range(times):
     # Se eligen números y operador al azar
     number_1 = randrange(10)
     number_2 = randrange(10)
