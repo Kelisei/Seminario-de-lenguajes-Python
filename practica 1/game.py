@@ -15,6 +15,8 @@ for i in range(times):
     number_1 = randrange(10)
     number_2 = randrange(10)
     operator = choice(operators)
+    while (operator == '/' and number_2 == 0):
+        number_2 = randrange(10)
     # Se imprime la cuenta.
     print(f"{i+1}- ¿Cuánto es {number_1} {operator} {number_2}?")
     # Le pedimos al usuario el resultado
@@ -28,7 +30,6 @@ for i in range(times):
             aux = (number_1 * number_2)
         case("/"):
             aux = (number_1 // number_2)
-    print(aux)
     if(result == aux):
         print('Es correcto')
         exitos += 1
