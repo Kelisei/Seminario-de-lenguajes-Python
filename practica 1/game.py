@@ -43,4 +43,4 @@ end_time = datetime.now()
 total_time = end_time - init_time
 # Mostramos ese tiempo en segundos.
 print(f"\nTardaste {total_time.seconds} segundos.")
-print('Exitos: ', exitos, 'Fallos: ', fallos)
+print(f'Exitos: {exitos} Fallos:  {fallos}')
