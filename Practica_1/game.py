@@ -20,7 +20,7 @@ for i in range(times):
     # Se imprime la cuenta.
     print(f"{i+1}- ¿Cuánto es {number_1} {operator} {number_2}?")
     # Le pedimos al usuario el resultado
-    result = int(input("resultado: "))
+    result = float(input("resultado: "))
     match operator:
         case("+"):
             aux = (number_1 + number_2)
