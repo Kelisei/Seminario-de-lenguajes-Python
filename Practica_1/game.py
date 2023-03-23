@@ -29,7 +29,7 @@ for i in range(times):
         case("*"):
             aux = (number_1 * number_2)
         case("/"):
-            aux = (number_1 // number_2)
+            aux = (number_1 / number_2)
     if aux == result:
         print('Es correcto')
         exitos += 1
