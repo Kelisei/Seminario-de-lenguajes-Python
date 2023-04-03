@@ -1,3 +1,4 @@
+type
 word = input('Introduce a word: ')
 match 'a' in word, 'n' in word: 
     case True, True: 
