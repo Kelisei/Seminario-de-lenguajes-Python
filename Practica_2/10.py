@@ -12,46 +12,43 @@ notas_2 = [30, 95, 28, 84, 84, 43, 66, 51, 4, 11, 58, 10, 13, 34, 96, 71, 86, 37
 64, 13, 8, 87, 14, 14, 49, 27, 55, 69, 77, 59, 57, 40, 96, 24, 30, 73,
 95, 19, 47, 15, 31, 39, 15, 74, 33, 57, 10]
 
-def generate_joint_structure(names, marks_1, marks_2):
-    """The function recives a string and two list with marks and the generates a zip object which contains
-    a tuple with the name alongside the two marks corresponding to each student"""
-    formatted_names = names.replace("\n", "")
-    formatted_names = formatted_names.split(',') 
-    return tuple(zip (formatted_names, marks_1, marks_2))
 
-def calculate_average_individual(union):
-    """The function recives a lsit with tuples containing the name and the two marks of each student and calculates
-    the average of the marks for each student. It then returns a dictionary where the keys are the student
-    names and the values are their corresponding average marks."""
-    average = dict()
-    for elem in union:
-        average[elem[0]] = sum([x for x in elem if isinstance(x, (int))])/2
-    return average
+"""generar una estructura con todas las notas relacionando el nombre del estudiante con las
+notas. Utilizar esta estructura para la resolución de los siguientes items. """
 
-def calculate_average_class(average):
-    """This function recives a dictionary with the average marks of all the students in a class and
-    calculates the overall average marks for the class."""
-    total = 0
-    for student in average:
-        total += average[student]
-    return total / len(average)
+def generate_joint_structure(names, marks_1, marks_2): #A
+    """Para esta funcion recibimos las 3 estructuras (el string, y las 2 listas de notas),
+    al string lo formateamos para que quede cada nombre separado y en una lista, luego cen la 
+    comprension de diccionarios con zip generamos una estructura que une los 3, que tiene de datos
+    el nombre [0], y las 2 notas [1], [2], entonces usamos de key el nombre y de dato los unimos a las notas
+    en una tupla"""
+    formatted_names = names.replace("\n", "").replace("'", "").replace(" ", "").split(',') 
+    return {name:(mark1, mark2) for name, mark1, mark2 in zip(formatted_names, marks_1, marks_2)}
+ 
+def calculate_average_individual(union): #B
+    """Usando comprension de diccionarios, utilizamos como llaves del actual la llaves del diccionario 
+    recibido, y que el valor sea la suma de los valores dentro del valor del diccionario recibido dividido 2"""
+    return {name: sum(marks) / 2 for name, marks in union.items()}
 
-def max_student(average_per_student):
+def calculate_average_class(average): #C
+    """Esta funcion recibe un diccionario con las notas promedio de todos los estudiantes 
+    en una clase y calcula el promedio general de notas para la clase."""
+    return sum(average.values()) / len(average)
+
+def max_student(average_per_student): #D
     return max(average_per_student, key=average_per_student.get)
 
-def min_student(students):
-    """This function recives a tuple of tuples, the tuple is conformed in [0] of a name, and in [1][2] of marks, 
-    For key of the min function we use a lambda which returns the minimum of the [1] and [2] element of a tuple 
-    (the marks), we calculate the min of all the tuples and get tuple with lowest mark then we return the name 
-    of the student with [0]. 
-    """
-    return min(students, key=lambda x: (min(x[1], x[2])))[0] 
-
+def min_student(students): #E
+    """Recibe un diccionario creado en generate_joint_structure que posee las 2 notas como valor, y
+    de clave el nombre del alumno, de entre cada valor saco cual es la nota más baja y esa es 
+    mi key para el minimo en todo el diccionario"""
+    return min(students, key=lambda x: min(students[x])) 
 
 union = generate_joint_structure(nombres, notas_1, notas_2)
 average_per_student = calculate_average_individual(union)
 class_average = calculate_average_class(average_per_student)
 
-print(f'The class average is : {class_average}')
+print(f'Average per studente: {average_per_student}')
+print(f'The class average is : {round(class_average, 2)}')
 print(f'The student with the highest average grade is {max_student(average_per_student)}')
 print(f'The student with the lowest grade is {min_student(union)}')
