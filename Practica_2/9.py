@@ -24,8 +24,6 @@ scrabble = {'A': 1,
             'X': 8,
             'Q': 10,
             'Z': 10}
-word = input('Input a word: ')
-value = 0
-for char in word:
-    value += scrabble[char.capitalize()]
+word = input('Input a word: ').upper()
+value = sum(scrabble[char] for char in word)
 print(f'Value of the word {word}: {value}')
