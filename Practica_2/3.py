@@ -10,11 +10,11 @@ ones.
 """
 
 words = jupyter_info.split()
-letter = input('Input a letter ').lower()
+letter = input('Input a letter: ').lower()
 
 if (len(letter) == 1) and (letter in string.ascii_lowercase):
     for word in words:
         if word.lower().startswith(letter):
             print(word)
 else:
-    print('Not a word bozo')
+    print('Not a letter')

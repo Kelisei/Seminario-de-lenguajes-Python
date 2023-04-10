@@ -12,18 +12,18 @@ very_hard = 0
 
 for sentence in body:
     lenght =len(sentence.split())
-    print(lenght)
-    if(lenght > 25):
+    if lenght > 25:
         very_hard += 1
-    elif(lenght >= 18 and lenght <= 25):
+    elif lenght in range(18, 26):
         hard += 1
-    elif(lenght >= 13 and lenght <= 17):
-        aceptable+=1
-    elif (len(sentence.split()) <= 12):
-        easy+=1
+    elif lenght in range(13, 18):
+        aceptable += 1
+    elif lenght <= 12:
+        easy += 1
+
 
 if (len(title) > 10):
-    print('Not ok')
+    print('The title is too long')
 else:
-    print('ok')
+    print('The title has a fine lenght')
 print(f'There was {easy=} to read, {aceptable=} to read, {hard=} to read, {very_hard=} to read')       
