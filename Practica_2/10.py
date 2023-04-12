@@ -12,10 +12,6 @@ notas_2 = [30, 95, 28, 84, 84, 43, 66, 51, 4, 11, 58, 10, 13, 34, 96, 71, 86, 37
 64, 13, 8, 87, 14, 14, 49, 27, 55, 69, 77, 59, 57, 40, 96, 24, 30, 73,
 95, 19, 47, 15, 31, 39, 15, 74, 33, 57, 10]
 
-
-"""generar una estructura con todas las notas relacionando el nombre del estudiante con las
-notas. Utilizar esta estructura para la resolución de los siguientes items. """
-
 def generate_joint_structure(names, marks_1, marks_2): #A
     """Para esta funcion recibimos las 3 estructuras (el string, y las 2 listas de notas),
     al string lo formateamos para que quede cada nombre separado y en una lista, luego cen la 
