@@ -48,7 +48,8 @@ union = generate_joint_structure(nombres, notas_1, notas_2)
 average_per_student = calculate_average_individual(union)
 class_average = calculate_average_class(average_per_student)
 
-print(f'Average per studente: {average_per_student}')
+# El primer print no estaba en el video, fue agregado después
+print(f'Average per student: {average_per_student}')
 print(f'The class average is : {round(class_average, 2)}')
 print(f'The student with the highest average grade is {max_student(average_per_student)}')
 print(f'The student with the lowest grade is {min_student(union)}')
