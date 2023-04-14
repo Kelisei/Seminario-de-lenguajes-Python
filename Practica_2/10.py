@@ -16,7 +16,7 @@ def generate_joint_structure(names, marks_1, marks_2): #A
     """Para esta funcion recibimos las 3 estructuras (el string, y las 2 listas de notas),
     al string lo formateamos para que quede cada nombre separado y en una lista, luego cen la 
     comprension de diccionarios con zip generamos una estructura que une los 3, que tiene de datos
-    el nombre [0], y las 2 notas [1], [2], entonces usamos de key el nombre y de dato los unimos a las notas
+    el nombre [0], y las 2 notas [1], [2], entonces usamos de clave el nombre y de valor los unimos a las notas
     en una tupla"""
     formatted_names = names.replace("\n", "").replace("'", "").replace(" ", "").split(',') 
     return {name:(mark1, mark2) for name, mark1, mark2 in zip(formatted_names, marks_1, marks_2)}
